@@ -3,7 +3,6 @@ package jp.ac.titech.itpro.sdl.hilbert;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,21 +26,15 @@ public class MainActivity extends AppCompatActivity {
         decButton = findViewById(R.id.dec_button);
         incButton = findViewById(R.id.inc_button);
 
-        decButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                assertTrue(order > 1, "A room to decrement order should exist");
-                order--;
-                display();
-            }
+        decButton.setOnClickListener(v -> {
+            assertTrue(order > 1, "A room to decrement order should exist");
+            order--;
+            display();
         });
-        incButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                assertTrue(order < MAX_ORDER, "A room to increment order should exist");
-                order++;
-                display();
-            }
+        incButton.setOnClickListener(v -> {
+            assertTrue(order < MAX_ORDER, "A room to increment order should exist");
+            order++;
+            display();
         });
     }
 

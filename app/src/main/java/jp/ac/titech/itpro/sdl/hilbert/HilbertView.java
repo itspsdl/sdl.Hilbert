@@ -9,18 +9,14 @@ import android.view.View;
 
 public class HilbertView extends View {
 
-    private Paint paint = new Paint();
+    private final Paint paint = new Paint();
 
     private Canvas canvas;
 
     private int order = 1;
 
-    private HilbertTurtle turtle = new HilbertTurtle(new Turtle.Drawer() {
-        @Override
-        public void drawLine(double x0, double y0, double x1, double y1) {
-            canvas.drawLine((float) x0, (float) y0, (float) x1, (float) y1, paint);
-        }
-    });
+    private final HilbertTurtle turtle = new HilbertTurtle((x0, y0, x1, y1) ->
+            canvas.drawLine((float) x0, (float) y0, (float) x1, (float) y1, paint));
 
     public HilbertView(Context context) {
         this(context, null);
@@ -39,8 +35,8 @@ public class HilbertView extends View {
         super.onDraw(canvas);
         this.canvas = canvas;
 
-        int w = canvas.getWidth();
-        int h = canvas.getHeight();
+        int w = getWidth();
+        int h = getHeight();
         paint.setColor(Color.DKGRAY);
         canvas.drawRect(0, 0, w, h, paint);
 

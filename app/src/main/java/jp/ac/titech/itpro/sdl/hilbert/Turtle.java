@@ -5,13 +5,16 @@ public class Turtle {
         void drawLine(double x0, double y0, double x1, double y1);
     }
 
+    @SuppressWarnings("unused")
     public static final double R = Math.PI / 2, L = -R;
+
+    @SuppressWarnings("unused")
     public static final double N = 0.0, E = Math.PI / 2, S = Math.PI, W = E + S;
 
     private double x = 0.0, y = 0.0;
     private double dir = 0.0;
 
-    private Drawer drawer;
+    private final Drawer drawer;
 
     public Turtle(Drawer drawer) {
         this.drawer = drawer;
